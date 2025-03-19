@@ -1,11 +1,11 @@
 import pandas as pd
 import json
 
-# Define the correct file paths
-json_file_path = "acndata_sessions.json"  # Ensure this path is correct
+# Define file paths
+json_file_path = "acndata_sessions.json"
 csv_file_path = "acndata_sessions.csv"
 
-# Read the JSON file properly
+# Read and parse JSON file
 try:
     with open(json_file_path, "r", encoding="utf-8") as file:
         json_data = json.load(file)  # Load JSON as dictionary
@@ -14,7 +14,7 @@ try:
     if '_items' in json_data:
         df = pd.DataFrame(json_data['_items'])  # Convert JSON list to DataFrame
     else:
-        df = pd.DataFrame(json_data)  # Fallback if '_items' key is missing
+        raise ValueError("Key '_items' not found in JSON file.")
 
     # Save the DataFrame to CSV
     df.to_csv(csv_file_path, index=False)
