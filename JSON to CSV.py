@@ -2,8 +2,8 @@ import pandas as pd
 import json
 
 # Define file paths
-json_file_path = "acndata_sessions.json"
-csv_file_path = "acndata_sessions.csv"
+json_file_path = "/Users/huibvanderveen/Desktop/Pycharm Projects/ML_New/YEAR/sessions_filtered_2019.json"
+csv_file_path = "sessions_filtered_2019.csv"
 
 # Read and parse JSON file
 try:
